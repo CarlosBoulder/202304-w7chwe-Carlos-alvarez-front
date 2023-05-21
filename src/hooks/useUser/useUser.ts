@@ -1,0 +1,19 @@
+import axios from "axios";
+
+interface UserCredentials {
+  username: string;
+  password: string;
+}
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
+const useUser = (credential: UserCredentials) => {
+  const getToken = async (): Promise<string> => {
+    const { data: data } = await axios.post(`${apiUrl}login`, credential);
+    return data.token;
+  };
+
+  return { getToken };
+};
+
+export default useUser;

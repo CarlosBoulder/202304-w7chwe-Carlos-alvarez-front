@@ -2,7 +2,7 @@ import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import { useAppDispatch } from "../../store";
-import { loginActionCreator } from "../../store/user/loginSlice";
+import { loginActionCreator } from "../../store/user/userSlice";
 
 interface UserCredentials {
   username: string;
@@ -38,7 +38,6 @@ const LoginForm = (): JSX.Element => {
     event.preventDefault();
 
     const obtainedToken = await getToken();
-
     if (obtainedToken) {
       const decodedToken: { sub: string; name: string } =
         jwt_decode(obtainedToken);
@@ -49,45 +48,49 @@ const LoginForm = (): JSX.Element => {
       };
 
       dispatch(loginActionCreator(tokenInfo));
+
+      localStorage.setItem("token", obtainedToken);
     }
   };
 
   return (
-    <form className="form-container" autoComplete="off" onSubmit={handleSubmit}>
-      <h3>Sign In</h3>
+    <div className="form-container">
+      <form autoComplete="off" onSubmit={handleSubmit}>
+        <h3>Sign In</h3>
 
-      <div className="mb-3">
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter username"
-          id="username"
-          onChange={onChangeUserData}
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter username"
+            id="username"
+            onChange={onChangeUserData}
+          />
+        </div>
 
-      <div className="mb-3">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter password"
-          onChange={onChangeUserData}
-          id="password"
-        />
-      </div>
+        <div className="mb-3">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            placeholder="Enter password"
+            onChange={onChangeUserData}
+            id="password"
+          />
+        </div>
 
-      <div className="d-grid">
-        <button
-          type="submit"
-          disabled={!isValidForm}
-          className="btn btn-primary"
-        >
-          Submit
-        </button>
-      </div>
-    </form>
+        <div className="d-grid">
+          <button
+            type="submit"
+            disabled={!isValidForm}
+            className="btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

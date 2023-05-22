@@ -1,13 +1,8 @@
-import LoginForm from "../LoginForm/LoginForm";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Layout from "../Layout/Layout";
 
 const App = (): JSX.Element => {
-  return (
-    <>
-      <h1>Social Network!</h1>
-      <LoginForm />
-    </>
-  );
+  return <Layout />;
 };
 
 export default App;

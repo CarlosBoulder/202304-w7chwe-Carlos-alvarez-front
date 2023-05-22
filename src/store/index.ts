@@ -3,7 +3,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { usersReducer } from "./users/usersSlice";
-import { loginReducer } from "./user/loginSlice";
+import { loginReducer } from "./user/userSlice";
 
 const rootReducer = combineReducers({
   userStore: usersReducer,

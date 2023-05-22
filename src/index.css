@@ -7,3 +7,14 @@
 html {
   font-family: sans-serif;
 }
+
+body {
+  margin: 0;
+}
+
+.form-container {
+  width: 90vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

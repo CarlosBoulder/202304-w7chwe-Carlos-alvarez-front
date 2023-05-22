@@ -1,5 +1,5 @@
-import { loginActionCreator, loginReducer } from "./loginSlice";
-import { TokenStateStructure } from "./loginSlice";
+import { loginActionCreator, loginReducer } from "./userSlice";
+import { TokenStateStructure } from "./userSlice";
 
 describe("Given a loginReducer reducer", () => {
   describe("When it receives an empty initial state", () => {

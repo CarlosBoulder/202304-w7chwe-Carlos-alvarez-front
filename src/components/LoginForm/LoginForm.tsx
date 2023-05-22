@@ -3,6 +3,7 @@ import { useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import { useAppDispatch } from "../../store";
 import { loginActionCreator } from "../../store/user/userSlice";
+import { useNavigate } from "react-router-dom";
 
 interface UserCredentials {
   username: string;
@@ -11,6 +12,7 @@ interface UserCredentials {
 
 const LoginForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const initialUserCredentials: UserCredentials = {
     username: "",
@@ -50,6 +52,8 @@ const LoginForm = (): JSX.Element => {
       dispatch(loginActionCreator(tokenInfo));
 
       localStorage.setItem("token", obtainedToken);
+
+      navigate("/users", { replace: true });
     }
   };
 

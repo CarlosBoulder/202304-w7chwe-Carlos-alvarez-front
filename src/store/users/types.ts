@@ -4,6 +4,7 @@ interface UsersStructure {
   name: string;
   picture: string;
   description: string;
+  _id: string;
 }
 
 export default UsersStructure;

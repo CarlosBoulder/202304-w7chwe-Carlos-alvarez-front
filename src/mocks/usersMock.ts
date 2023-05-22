@@ -7,6 +7,7 @@ const usersMock: UsersStructure[] = [
     name: "test name",
     picture: "testUrl",
     description: "testDescription",
+    _id: "testId",
   },
 ];
 

@@ -1,6 +1,7 @@
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import App from "../components/App/App";
+import UsersPage from "../pages/UsersPage/Userspage";
 
 const routes: RouteObject[] = [
   {
@@ -18,6 +19,16 @@ const routes: RouteObject[] = [
       {
         path: "*",
         element: <p>Page not found, please try it later</p>,
+      },
+    ],
+  },
+  {
+    path: "/users",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <UsersPage />,
       },
     ],
   },

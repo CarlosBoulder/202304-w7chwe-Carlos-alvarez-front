@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface UserCredentials {
+export interface UserCredentials {
   username: string;
   password: string;
 }
